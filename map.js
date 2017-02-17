@@ -24,16 +24,9 @@ $(document).ready(function() {
 	}).addTo(mymap);
 
 
-	// var ajaxUrl = 'https://yangf96.github.io/Cruz-Roja-Views/ambulances.json';
-	// $('#refresh').click(function() {
-	// 	console.log('change url');
-	// 	console.log('click url is ' + ajaxUrl);
-	// 	if(ajaxUrl === 'https://yangf96.github.io/Cruz-Roja-Views/ambulances.json')
-	// 		ajaxUrl = 'https://yangf96.github.io/JSON-test/moreAmbulances.json';
-	// 	else
-	// 		ajaxUrl = 'https://yangf96.github.io/Cruz-Roja-Views/ambulances.json';
-	// });
-
+	$.getJSON('https://yangf96.github.io/TJwater/pins.json', function(data){
+		console.log(data);
+	})
 
 	var pinMarkers = {};	// Store pin markers
 
@@ -46,6 +39,7 @@ $(document).ready(function() {
 					iconUrl: 'marker-' + item.color + '.png',
 					iconSize: [40, 40],
 				});
+				console.log('hello');
 				pinMarkers[item.id] = L.marker([item.lat, item.lon], {icon: pinIcon})
 				.bindPopup('<li>Submitted by: <strong>' + item.reporter + '</strong></li><li>Date: ' + item.date + '</li>').addTo(mymap);
 				// Bind id to icon
@@ -79,17 +73,17 @@ $(document).ready(function() {
 	});
 });
 
-function AjaxReq(pinMarkers, ajaxUrl) {
-	console.log('ajax request sent');
-	console.log(ajaxUrl);
-	$.ajax({
-		type: 'GET',
-		url: ajaxUrl,
-		success: function(arr) {
-			$.each(arr, function (index, item) {
-				// Update ambulance location
-				pinMarkers[item.id] = pinMarkers[item.id].setLatLng([item.lat, item.lon]).update();
-			});
-		}
-	});
-}
+// function AjaxReq(pinMarkers, ajaxUrl) {
+// 	console.log('ajax request sent');
+// 	console.log(ajaxUrl);
+// 	$.ajax({
+// 		type: 'GET',
+// 		url: ajaxUrl,
+// 		success: function(arr) {
+// 			$.each(arr, function (index, item) {
+// 				// Update ambulance location
+// 				pinMarkers[item.id] = pinMarkers[item.id].setLatLng([item.lat, item.lon]).update();
+// 			});
+// 		}
+// 	});
+// }

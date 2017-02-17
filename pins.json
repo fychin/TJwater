@@ -14,21 +14,5 @@
 		"lon": "-117.120955",
 		"reporter": "Calvin	Reeves",
 		"date": "1/10"
-	},
-	{
-		"id": "3",
-		"color": "green",
-		"lat": "32.482548",
-		"lon": "-117.121856",
-		"reporter": "Cory Oliver",
-		"date": "3/2"
-	},
-	{
-		"id": "4",
-		"color": "red",
-		"lat": "32.484467",
-		"lon": "-117.123294",
-		"reporter": "Kristin	Tate",
-		"date": "12/28"
 	}
 ]

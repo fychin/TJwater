@@ -1,19 +1,5 @@
 $(document).ready(function() {
-	var mymap = L.map('live-map').setView([32.482322, -117.121553], 12);
-	// Initialize marker icons.
-	// var redPin = L.icon({
-	// 	iconUrl: 'marker-red.png',
-	// 	iconSize: [40, 40],
-	// });
-	// var yellowPin = L.icon({
-	// 	iconUrl: 'marker-yellow.png',
-	// 	iconSize: [40, 40],
-	// });
-	// var greenPin = L.icon({
-	// 	iconUrl: 'marker-green.png',
-	// 	iconSize: [40, 40],
-	// });
-	
+	var mymap = L.map('live-map').setView([32.482322, -117.121553], 14);
 
 	// Add layer to map.
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoieWFuZ2Y5NiIsImEiOiJjaXltYTNmbTcwMDJzMzNwZnpzM3Z6ZW9kIn0.gjEwLiCIbYhVFUGud9B56w', {
@@ -37,11 +23,11 @@ $(document).ready(function() {
 			$.each(arr, function(index, item) {
 				var pinIcon = L.icon({
 					iconUrl: 'marker-' + item.color + '.png',
-					iconSize: [40, 40],
+					iconSize: [25, 41],
 				});
 				console.log('hello');
 				pinMarkers[item.id] = L.marker([item.lat, item.lon], {icon: pinIcon})
-				.bindPopup('<li>Submitted by: <strong>' + item.reporter + '</strong></li><li>Date: ' + item.date + '</li>').addTo(mymap);
+				.bindPopup('<p>Submitted by: <strong>' + item.reporter + '</strong></p><p>Date: ' + item.date + '</p>').addTo(mymap);
 				// Bind id to icon
 				pinMarkers[item.id]._icon.id = item.id;
 				// Collapse panel on icon hover.

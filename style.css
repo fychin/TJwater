@@ -1,0 +1,49 @@
+.glyphicon-king {
+	color: yellow;
+	padding-right: 10px;
+}
+
+.lvl {
+	display: inline;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+
+    -moz-border-radius: 15px; /* or 50% */
+    border-radius: 15px; /* or 50% */
+
+    background-color: green;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.lvl-yellow {
+	display: inline;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+
+    -moz-border-radius: 15px; /* or 50% */
+    border-radius: 15px; /* or 50% */
+
+    background-color: yellow;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+}
+
+.lvl-red {
+	display: inline;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+
+    -moz-border-radius: 15px; /* or 50% */
+    border-radius: 15px; /* or 50% */
+
+    background-color: red;
+    color: black;
+    text-align: center;
+    font-size: 18px;
+}

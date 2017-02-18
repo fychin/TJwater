@@ -12,7 +12,23 @@
 		"color": "red",
 		"lat": "32.480466",
 		"lon": "-117.120955",
-		"reporter": "Calvin	Reeves",
+		"reporter": "Calvin Reeves",
+		"date": "1/10"
+	},
+	{
+		"id": "3",
+		"color": "green",
+		"lat": "32.480496",
+		"lon": "-117.120765",
+		"reporter": "Jeff Smith",
+		"date": "1/10"
+	},
+	{
+		"id": "4",
+		"color": "red",
+		"lat": "32.480206",
+		"lon": "-117.120605",
+		"reporter": "Kristin Tate",
 		"date": "1/10"
 	}
 ]

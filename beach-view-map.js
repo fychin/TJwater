@@ -25,9 +25,8 @@ $(document).ready(function() {
 					iconUrl: 'marker-' + item.color + '.png',
 					iconSize: [25, 41],
 				});
-				console.log('hello');
 				pinMarkers[item.id] = L.marker([item.lat, item.lon], {icon: pinIcon})
-				.bindPopup('<img class="img-responsive" width="60px" src="' + item.img + '">'
+				.bindPopup('<img class="img-responsive" width="250px" src="' + item.img + '">'
 					 + '<p>Submitted by: <strong>' + item.reporter + '</strong></p><p>Date: '
 					 + item.date + '</p>').addTo(mymap);
 				// Bind id to icon

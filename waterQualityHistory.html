@@ -46,26 +46,53 @@
 
   <div class="container">
 
-    <div class="row">
-      <div class="col-md-8">
-        <h3>Water Quality Map</h3>
-        <div id="live-map" style="width: 700px; height: 550px"></div>
-      </div><!--end col-md-8-->
+    <table class="table table-striped">
+			<thead>
+				<th>Date Reported</th>
+				<th>Submitted by</th>
+				<th>Location</th>
+				<th>Coordinates</th>
+				<th>Status</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>7 Feb 2017, 6:01pm</td>
+					<td>Jeff Smith</td>
+					<td>Tijuana, MX</td>
+					<td>-123.24212, 53.430981</td>
+					<td>Safe <span class="glyphicon glyphicon-tint" style="color: green;"></span></td>				
+				</tr>
+				
+				<tr>
+					<td>23 Feb 2017, 3:21am</td>
+					<td>Cory Evans</td>
+					<td>Tijuana, MX</td>
+					<td>-123.24212, 53.430981</td>
+					<td>Unsafe <span class="glyphicon glyphicon-tint" style="color: yellow;"></span></td>				
+				</tr>
 
-      <div class="col-md-4">
-        <div style="text-align: center; height: 200px">
-          <span style="display: inline-block; vertical-align: middle; height: 100%"></span>
-          <h4>Live Cam Broadcast</h4>
-          <img class="img-responsive" style="vertical-align: middle;" src="live-cam.jpg">
-        </div>
-      </div>
+				<tr>
+					<td>8 Mar 2017, 10:41am</td>
+					<td>Kristine Tate</td>
+					<td>Tijuana, MX</td>
+					<td>-123.24212, 53.430981</td>
+					<td>Danger <span style="color: red;"><strong>&#9762</strong></span></td>				
+				</tr>
 
-    </div><!--end row -->
-  </div>
+				<tr>
+					<td>15 Mar 2017, 8:03am</td>
+					<td>Jeff Smith</td>
+					<td>Tijuana, MX</td>
+					<td>-123.24212, 53.430981</td>
+					<td>Safe <span class="glyphicon glyphicon-tint" style="color: green;"></span></td>				
+				</tr>
+			</tbody>
+		</table>
 
-  <footer>
-  </footer>
-
+		<div class="center-block">
+			<img class="img-responsive" src="trend.jpeg" style="margin-left: 350px">
+		</div>
+	</div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>

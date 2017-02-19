@@ -5,7 +5,8 @@
 		"lat": "32.474423",
 		"lon": "-117.116739",
 		"reporter": "Jeff Smith",
-		"date": "2/8"
+		"date": "2/8",
+		"img": "clean-beach.jpg"
 	},
 	{
 		"id": "2",
@@ -13,7 +14,8 @@
 		"lat": "32.480466",
 		"lon": "-117.020955",
 		"reporter": "Calvin Reeves",
-		"date": "1/10"
+		"date": "1/10",
+		"img": "polluted-beach.jpg"
 	},
 	{
 		"id": "3",
@@ -21,7 +23,8 @@
 		"lat": "32.500496",
 		"lon": "-117.120765",
 		"reporter": "Jeff Smith",
-		"date": "1/10"
+		"date": "1/10",
+		"img": "beach.jpg"
 	},
 	{
 		"id": "4",
@@ -29,6 +32,7 @@
 		"lat": "32.480206",
 		"lon": "-117.120605",
 		"reporter": "Kristin Tate",
-		"date": "1/10"
+		"date": "1/10",
+		"img": "polluted-beach-2.jpg"
 	}
 ]

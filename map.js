@@ -15,10 +15,15 @@ $(document).ready(function() {
 	})
 
 	var pinMarkers = {};	// Store pin markers
+	var pinUrl = 'https://yangf96.github.io/TJwater/pins.json';
+
+	$('#submit').click(function() {
+		pinUrl = 'https://yangf96.github.io/TJwater/pinsUpdated.json';
+	});
 
 	$.ajax({
 		type: 'GET',
-		url: 'https://yangf96.github.io/TJwater/pins.json',
+		url: pinUrl,
 		success: function(arr) {
 			$.each(arr, function(index, item) {
 				var pinIcon = L.icon({
@@ -42,6 +47,34 @@ $(document).ready(function() {
 			});
 		}
 	});
+
+	window.setInterval(function() {
+		$.ajax({
+			type: 'GET',
+			url: pinUrl,
+			success: function(arr) {
+				$.each(arr, function(index, item) {
+					var pinIcon = L.icon({
+						iconUrl: 'marker-' + item.color + '.png',
+						iconSize: [25, 41],
+					});
+					pinMarkers[item.id] = L.marker([item.lat, item.lon], {icon: pinIcon})
+					.bindPopup('<p>Submitted by: <strong>' + item.reporter + '</strong></p><p>Date: ' + item.date + '</p>').addTo(mymap);
+					// Bind id to icon
+					pinMarkers[item.id]._icon.id = item.id;
+					// Collapse panel on icon hover.
+					pinMarkers[item.id].on('mouseover', function(e){
+						$('#collapse' + this._icon.id).collapse('show');
+						this.openPopup().on('mouseout', function(e){
+							$('#collapse' + this._icon.id).collapse('hide');
+							this.closePopup();
+						});
+					});  
+
+				});
+			}
+		});
+	}, 200);
 
 	// window.setInterval(function() {
 	// 	AjaxReq(pinMarkers, ajaxUrl);

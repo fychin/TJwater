@@ -18,7 +18,22 @@ $(document).ready(function() {
 	var pinUrl = 'https://yangf96.github.io/TJwater/pins.json';
 
 	$('#submit').click(function() {
-		pinUrl = 'https://yangf96.github.io/TJwater/pinsUpdated.json';
+		let pinIcon = L.icon({
+			iconUrl: 'marker-' + 'green'+ '.png',
+			iconSize: [25, 41],
+		});
+		pinMarkers[5] = L.marker(["32.481241", "-117.110326"], {icon: pinIcon})
+		.bindPopup('<p>Submitted by: <strong>' + 'Jeff Smith' + '</strong></p><p>Date: ' + '2/28' + '</p>').addTo(mymap);
+		// Bind id to icon
+		pinMarkers[5]._icon.id = 4;
+		// Collapse panel on icon hover.
+		pinMarkers[5].on('mouseover', function(e){
+			$('#collapse' + this._icon.id).collapse('show');
+			this.openPopup().on('mouseout', function(e){
+				$('#collapse' + this._icon.id).collapse('hide');
+				this.closePopup();
+			});
+		});
 	});
 
 	$.ajax({
@@ -48,38 +63,33 @@ $(document).ready(function() {
 		}
 	});
 
-	window.setInterval(function() {
-		$.ajax({
-			type: 'GET',
-			url: pinUrl,
-			success: function(arr) {
-				$.each(arr, function(index, item) {
-					var pinIcon = L.icon({
-						iconUrl: 'marker-' + item.color + '.png',
-						iconSize: [25, 41],
-					});
-					pinMarkers[item.id] = L.marker([item.lat, item.lon], {icon: pinIcon})
-					.bindPopup('<p>Submitted by: <strong>' + item.reporter + '</strong></p><p>Date: ' + item.date + '</p>').addTo(mymap);
-					// Bind id to icon
-					pinMarkers[item.id]._icon.id = item.id;
-					// Collapse panel on icon hover.
-					pinMarkers[item.id].on('mouseover', function(e){
-						$('#collapse' + this._icon.id).collapse('show');
-						this.openPopup().on('mouseout', function(e){
-							$('#collapse' + this._icon.id).collapse('hide');
-							this.closePopup();
-						});
-					});  
-
-				});
-			}
-		});
-	}, 200);
-
 	// window.setInterval(function() {
-	// 	AjaxReq(pinMarkers, ajaxUrl);
-	// }, 1000);
+	// 	$.ajax({
+	// 		type: 'GET',
+	// 		url: pinUrl,
+	// 		success: function(arr) {
+	// 			$.each(arr, function(index, item) {
+	// 				var pinIcon = L.icon({
+	// 					iconUrl: 'marker-' + item.color + '.png',
+	// 					iconSize: [25, 41],
+	// 				});
+	// 				pinMarkers[item.id] = L.marker([item.lat, item.lon], {icon: pinIcon})
+	// 				.bindPopup('<p>Submitted by: <strong>' + item.reporter + '</strong></p><p>Date: ' + item.date + '</p>').addTo(mymap);
+	// 				// Bind id to icon
+	// 				pinMarkers[item.id]._icon.id = item.id;
+	// 				// Collapse panel on icon hover.
+	// 				pinMarkers[item.id].on('mouseover', function(e){
+	// 					$('#collapse' + this._icon.id).collapse('show');
+	// 					this.openPopup().on('mouseout', function(e){
+	// 						$('#collapse' + this._icon.id).collapse('hide');
+	// 						this.closePopup();
+	// 					});
+	// 				});  
 
+	// 			});
+	// 		}
+	// 	});
+	// }, 1200);
 
 	// Open popup on panel hover.
 	$('.ambulance-panel').click(function(){
@@ -91,18 +101,3 @@ $(document).ready(function() {
 		}, 2500);
 	});
 });
-
-// function AjaxReq(pinMarkers, ajaxUrl) {
-// 	console.log('ajax request sent');
-// 	console.log(ajaxUrl);
-// 	$.ajax({
-// 		type: 'GET',
-// 		url: ajaxUrl,
-// 		success: function(arr) {
-// 			$.each(arr, function (index, item) {
-// 				// Update ambulance location
-// 				pinMarkers[item.id] = pinMarkers[item.id].setLatLng([item.lat, item.lon]).update();
-// 			});
-// 		}
-// 	});
-// }
